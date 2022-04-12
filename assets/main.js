@@ -25,11 +25,8 @@ const posts = [
     }
 ]
 
-const postArea = document.querySelector('post_area')
-console.log(postArea);
-
-posts.forEach((post) => {
-    let postSection = `
+function createPost(post){
+    let sectext = `
     <div class="post">
         <div class="head_post">
             <div class="icon_logo">${post.foto_user}</div>
@@ -46,9 +43,12 @@ posts.forEach((post) => {
         </div>
     </div>
     `
-    postArea.append(postSection)
-})
-
-function createPostArea(){
-    
+    postArea.innerHTML = sectext;
 }
+
+const postArea = document.querySelector('.post_area')
+
+posts.forEach((post,index) => {
+    createPost(post);
+    console.log('hi');
+})
