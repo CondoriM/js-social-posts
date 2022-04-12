@@ -25,6 +25,8 @@ const posts = [
     }
 ]
 
+const postArea = document.querySelector('.post_area')
+
 function createPost(post){
     let sectext = `
     <div class="post">
@@ -43,10 +45,10 @@ function createPost(post){
         </div>
     </div>
     `
-    postArea.innerHTML = sectext;
+    postArea.insertAdjacentHTML('beforeend',sectext)
 }
 
-const postArea = document.querySelector('.post_area')
+
 
 posts.forEach((post,index) => {
     createPost(post);
