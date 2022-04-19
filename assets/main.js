@@ -28,7 +28,7 @@ const posts = [
 const postArea = document.querySelector('.post_area')
 
 function createPost(post){
-    let sectext = `
+    return `
     <div class="post">
         <div class="head_post">
             <div class="icon_logo">${post.foto_user}</div>
@@ -40,17 +40,33 @@ function createPost(post){
             <div class="img_post">${post.foto_user}</div>
         </div>
         <div class="foot_post">
-            <input type="button">
+            <button id="like">click me</button>
             <div class="like_post">${post.likes}</div>
         </div>
     </div>
     `
-    postArea.insertAdjacentHTML('beforeend',sectext)
 }
 
+/** 
+	 * Generate product cards inside the dom element 
+	 * @param {array} post_array A list of products 
+	 * @param {object} dom_element a dom element 
+	 */ 
+function generatePostCard(post_array, dom_element){
+    post_array.forEach(post => {
+        const markup = createPost(post)
 
+        dom_element.insertAdjacentHTML('beforeend', markup)
+    })
+}
 
-posts.forEach((post,index) => {
-    createPost(post);
-    console.log('hi');
+const likes_post = posts.map((post) => post.likes)
+console.log(likes_post);
+
+generatePostCard(posts,postArea)
+
+document.querySelectorAll('#like').forEach(element => {
+    element.addEventListener('click',function(){
+        
+    })
 })
